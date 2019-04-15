@@ -1,0 +1,13 @@
+{
+  "name": "smcconne/328/dating",
+  "authors": [
+
+    {
+      "name": "Quill McConnell",
+      "email": "smcconnell4@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
