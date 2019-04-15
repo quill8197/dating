@@ -4,6 +4,7 @@
  * User: Quill McConnell
  * Date: 4/12/2019
  * Time: 2:16 PM
+ * Description: The controller for my dating website
  */
 
     // Turn on error reporting
