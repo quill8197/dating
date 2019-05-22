@@ -63,16 +63,20 @@
                         <label>Gender<br>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender"
-                                           value="Male">
-                                    Male
+                                    <input class="form-check-input" type="radio" name="gender" value="Male"
+                                    <check if="{{ !empty(@gender) && @gender == 'Male' }}">
+                                        checked="checked"
+                                    </check>
+                                    >Male
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender"
-                                           value="Female">
-                                    Female
+                                    <input class="form-check-input" type="radio" name="gender" value="Female"
+                                    <check if="{{ !empty(@gender) && @gender == 'Female' }}">
+                                        checked="checked"
+                                    </check>
+                                    >Female
                                 </label>
                             </div>
                         </label>

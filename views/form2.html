@@ -41,7 +41,7 @@
                                 <option>--Choose your State--</option>
                                 <repeat group="{{ @allStates }}" value="{{ @stateOption }}">
                                     <option
-                                    <check if="{{ !empty(@allStates) && in_array(@stateOption, @allStates) }}">
+                                    <check if="{{ !empty(@allStates) && @state == @stateOption }}">
                                         selected="selected"
                                     </check>
                                     >{{ @stateOption }}</option>

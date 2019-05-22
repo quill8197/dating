@@ -49,7 +49,7 @@ function validProfileForm()
     global $f3;
     $isValid = true;
 
-    if (!validString($f3->get('email')))
+    if (!validEmail($f3->get('email')))
     {
         $isValid = false;
         $f3->set("errors['email']", "Please enter your email");
@@ -85,7 +85,18 @@ function validProfileForm()
  */
 function validString($text)
 {
+    $text = str_replace(" ", "", $text);
+
     return !empty($text) && ctype_alpha($text);
+}
+
+function validEmail($email)
+{
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        return false;
+    }
+    return true;
 }
 
 /* Validate quantity
@@ -97,10 +108,6 @@ function validString($text)
  */
 function validNumber($text)
 {
-    echo !empty($text);
-    echo ctype_digit($text);
-    echo $text >= 1;
-
     return !empty($text) && ctype_digit($text) && $text >= 1;
 }
 
@@ -120,7 +127,7 @@ function validRadio($radio)
 
 function validList($list)
 {
-    if (isset($list))
+    if (!empty($list) && $list != "--Choose your State--")
     {
         return true;
     }
