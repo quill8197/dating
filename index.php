@@ -138,6 +138,44 @@ $f3->set('outdoorActivities', array('hiking', 'biking', 'swimming', 'collecting'
 // define a interests route
 $f3->route('GET|POST /interests', function($f3)
 {
+    //If form has been submitted, validate
+    if(!empty($_POST))
+    {
+        //Get data from form
+        $indoor = $_POST['indoor'];
+        $outdoor = $_POST['outdoor'];
+
+        //Add data to hive
+        $f3->set('indoor', $indoor);
+        $f3->set('outdoor', $outdoor);
+
+        //If data is valid
+        if (validInterestsForm())
+        {
+            //Write data to Session
+            if(!isset($_POST['indoor']))
+            {
+                $_SESSION['indoor'] = "No indoor selected";
+            }
+            else
+            {
+                $_SESSION['indoor'] = $indoor;
+            }
+
+            if(!isset($_POST['outdoor']))
+            {
+                $_SESSION['outdoor'] = "No outdoor selected";
+            }
+            else
+            {
+                $_SESSION['outdoor'] = $outdoor;
+            }
+
+            //Redirect to Summary
+            $f3->reroute('/summary');
+        }
+    }
+
     $view = new Template();
     echo $view->render('views/form3.html');
 });

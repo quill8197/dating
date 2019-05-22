@@ -76,6 +76,29 @@ function validProfileForm()
     return $isValid;
 }
 
+/* Validate the personal interests form
+ * @return boolean
+ */
+function validInterestsForm()
+{
+    global $f3;
+    $isValid = true;
+
+    if (!validCheckbox($f3->get('indoor')))
+    {
+        $isValid = false;
+        $f3->set("errors['indoor']", "Please select at least one indoor activity");
+    }
+
+    if (!validCheckbox($f3->get('outdoor')))
+    {
+        $isValid = false;
+        $f3->set("errors['outdoor']", "Please select at least one outdoor activity");
+    }
+
+    return $isValid;
+}
+
 /* Validate a food
  * Food must not be empty and may only consist
  * of alphabetic characters.
@@ -133,6 +156,15 @@ function validRadio($radio)
 function validList($list)
 {
     if (!empty($list) && $list != "--Choose your State--")
+    {
+        return true;
+    }
+    return false;
+}
+
+function validCheckbox($checkbox)
+{
+    if (!empty($checkbox) && isset($checkbox))
     {
         return true;
     }
