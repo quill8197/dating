@@ -67,7 +67,7 @@ function validProfileForm()
         $f3->set("errors['seeking']", "Please select the gender you're seeking");
     }
 
-    if (!validString($f3->get('biography')))
+    if (!validSentences($f3->get('biography')))
     {
         $isValid = false;
         $f3->set("errors['biography']", "Please enter your biography");
@@ -88,6 +88,11 @@ function validString($text)
     $text = str_replace(" ", "", $text);
 
     return !empty($text) && ctype_alpha($text);
+}
+
+function validSentences($text)
+{
+    return !empty($text);
 }
 
 function validEmail($email)
