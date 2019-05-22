@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <!-- Link to BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Information</h1>
+        <hr class="my-4">
+
+        <form action="#" method="post">
+            <div class="row">
+                <div class="col-sm-8">
+                    <!-- First Name Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['first'] }}">
+                            <span class="err">{{ @errors['first'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label class="form-check-label">First Name
+                            <input type="text" class="form-control" name="first" value="{{ @first }}">
+                        </label>
+                    </div>
+
+                    <!-- Last Name Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['last'] }}">
+                            <span class="err">{{ @errors['last'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label class="form-check-label">Last Name
+                            <input type="text" class="form-control" name="last" value="{{ @last }}">
+                        </label>
+                    </div>
+
+                    <!-- Age Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['age'] }}">
+                            <span class="err">{{ @errors['age'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label class="form-check-label">Age
+                            <input type="text" class="form-control" name="age" value="{{ @age }}">
+                        </label>
+                    </div>
+
+                    <!-- Gender Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['gender'] }}">
+                            <span class="err">{{ @errors['gender'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label>Gender<br>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="gender"
+                                           value="Male">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="gender"
+                                           value="Female">
+                                    Female
+                                </label>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Phone Number Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['phone'] }}">
+                            <span class="err">{{ @errors['phone'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label class="form-check-label">Phone
+                            <input type="text" class="form-control" name="phone" value="{{ @phone }}">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <aside class="container">
+                        <p>
+                            <strong>Note: </strong>All information is protected by our
+                            <a href="#">privacy policy</a>. Profile information can only be viewed
+                            by others with your permission
+                        </p>
+                    </aside>
+
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <input type="submit" class="btn btn-primary" value="Next">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

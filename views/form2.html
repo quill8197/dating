@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <!-- Link to BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Profile</h1>
+        <hr class="my-4">
+
+        <form action="#" method="post">
+            <div class="row">
+                <div class="col-sm-8">
+                    <!-- Email Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['email'] }}">
+                            <span class="err">{{ @errors['email'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label class="form-check-label">Email
+                            <input type="text" class="form-control" name="email" value="{{ @email }}">
+                        </label>
+                    </div>
+
+                    <!-- State Input (dropdown) -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['state'] }}">
+                            <span class="err">{{ @errors['state'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label class="form-check-label">State
+                            <select class="form-control" name="state" id="state">
+                                <option>--Choose your State--</option>
+                                <repeat group="{{ @allStates }}" value="{{ @stateOption }}">
+                                    <option
+                                    <check if="{{ !empty(@allStates) && in_array(@stateOption, @allStates) }}">
+                                        selected="selected"
+                                    </check>
+                                    >{{ @stateOption }}</option>
+                                </repeat>
+                            </select>
+                        </label>
+                    </div>
+
+                    <!-- Seeking Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['seeking'] }}">
+                            <span class="err">{{ @errors['seeking'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label>Seeking<br>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="seeking" value="Male"
+                                    <check if="{{ !empty(@seeking) && @seeking == 'Male' }}">
+                                        checked="checked"
+                                    </check>
+                                    >Male
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="seeking" value="Female"
+                                    <check if="{{ !empty(@seeking) && @seeking == 'Female' }}">
+                                        checked="checked"
+                                    </check>
+                                    >Female
+                                </label>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- Biography Input -->
+                    <div class="row form-group">
+                        <check if="{{ @errors['biography'] }}">
+                            <span class="err">{{ @errors['biography'] }}</span>
+                        </check>
+                    </div>
+                    <div class="row form-group">
+                        <label class="form-check-label">Biography
+                            <input type="text" class="form-control" name="biography" value="{{ @biography }}">
+                        </label>
+                    </div>
+
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <input type="submit" class="btn btn-primary" value="Next">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
