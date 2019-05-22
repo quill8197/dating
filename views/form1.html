@@ -24,7 +24,7 @@
                         </check>
                     </div>
                     <div class="row form-group">
-                        <label class="form-check-label">First Name
+                        <label class="form-check-label"><strong>First Name</strong>
                             <input type="text" class="form-control" name="first" value="{{ @first }}">
                         </label>
                     </div>
@@ -36,7 +36,7 @@
                         </check>
                     </div>
                     <div class="row form-group">
-                        <label class="form-check-label">Last Name
+                        <label class="form-check-label"><strong>Last Name</strong>
                             <input type="text" class="form-control" name="last" value="{{ @last }}">
                         </label>
                     </div>
@@ -48,7 +48,7 @@
                         </check>
                     </div>
                     <div class="row form-group">
-                        <label class="form-check-label">Age
+                        <label class="form-check-label"><strong>Age</strong>
                             <input type="text" class="form-control" name="age" value="{{ @age }}">
                         </label>
                     </div>
@@ -60,7 +60,7 @@
                         </check>
                     </div>
                     <div class="row form-group">
-                        <label>Gender<br>
+                        <label class="form-check-label"><strong>Gender</strong><br>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="radio" name="gender" value="Male"
@@ -89,23 +89,26 @@
                         </check>
                     </div>
                     <div class="row form-group">
-                        <label class="form-check-label">Phone
+                        <label class="form-check-label"><strong>Phone</strong>
                             <input type="text" class="form-control" name="phone" value="{{ @phone }}">
                         </label>
                     </div>
                 </div>
 
                 <div class="col-sm-4">
-                    <aside class="container">
-                        <p>
-                            <strong>Note: </strong>All information is protected by our
-                            <a href="#">privacy policy</a>. Profile information can only be viewed
-                            by others with your permission
-                        </p>
-                    </aside>
+                    <div class="row form-group">
+                        <aside class="container">
+                            <p>
+                                <strong>Note: </strong>All information is protected by our
+                                <a href="#">privacy policy</a>. Profile information can only be viewed
+                                by others with your permission
+                            </p>
+                        </aside>
+                    </div>
 
-                    <br><br><br><br><br><br><br><br><br><br><br><br>
-                    <input type="submit" class="btn btn-primary" value="Next">
+                    <div class="row form-group">
+                        <input type="submit" class="btn btn-primary" value="Next">
+                    </div>
                 </div>
             </div>
         </form>

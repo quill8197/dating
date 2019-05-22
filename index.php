@@ -130,6 +130,11 @@ $f3->route('GET|POST /profile', function($f3)
     echo $view->render('views/form2.html');
 });
 
+$f3->set('indoorActivities', array('tv', 'movies', 'cooking', 'board games',
+    'puzzles', 'reading', 'playing cards', 'video games'));
+$f3->set('outdoorActivities', array('hiking', 'biking', 'swimming', 'collecting',
+    'walking', 'climbing'));
+
 // define a interests route
 $f3->route('GET|POST /interests', function($f3)
 {
