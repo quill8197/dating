@@ -37,7 +37,7 @@
                     </div>
                     <div class="row form-group">
                         <label class="form-check-label">State
-                            <select class="form-control" name="state" id="state">
+                            <select class="form-control custom-select" name="state" id="state">
                                 <option>--Choose your State--</option>
                                 <repeat group="{{ @allStates }}" value="{{ @stateOption }}">
                                     <option
@@ -89,7 +89,7 @@
                     </div>
                     <div class="row form-group">
                         <label class="form-check-label">Biography
-                            <input type="text" class="form-control" name="biography" value="{{ @biography }}">
+                            <textarea rows="4" cols="30" class="form-control" name="biography">{{ @biography }}</textarea>
                         </label>
                     </div>
 
