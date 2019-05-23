@@ -8,31 +8,25 @@ function validPersonalForm()
     global $f3;
     $isValid = true;
 
-    if (!validString($f3->get('first')))
+    if (!validName($f3->get('first')))
     {
         $isValid = false;
         $f3->set("errors['first']", "Please enter your first name");
     }
 
-    if (!validString($f3->get('last')))
+    if (!validName($f3->get('last')))
     {
         $isValid = false;
         $f3->set("errors['last']", "Please enter your last name");
     }
 
-    if (!validNumber($f3->get('age')))
+    if (!validAge($f3->get('age')))
     {
         $isValid = false;
         $f3->set("errors['age']", "Please enter your age");
     }
 
-    if (!validRadio($f3->get('gender')))
-    {
-        $isValid = false;
-        $f3->set("errors['gender']", "Please select your gender");
-    }
-
-    if (!validNumber($f3->get('phone')))
+    if (!validPhone($f3->get('phone')))
     {
         $isValid = false;
         $f3->set("errors['phone']", "Please enter your phone number");
@@ -55,24 +49,6 @@ function validProfileForm()
         $f3->set("errors['email']", "Please enter your email");
     }
 
-    if (!validList($f3->get('state')))
-    {
-        $isValid = false;
-        $f3->set("errors['state']", "Please select your state");
-    }
-
-    if (!validRadio($f3->get('seeking')))
-    {
-        $isValid = false;
-        $f3->set("errors['seeking']", "Please select the gender you're seeking");
-    }
-
-    if (!validSentences($f3->get('biography')))
-    {
-        $isValid = false;
-        $f3->set("errors['biography']", "Please enter your biography");
-    }
-
     return $isValid;
 }
 
@@ -84,14 +60,12 @@ function validInterestsForm()
     global $f3;
     $isValid = true;
 
-    if (!validCheckbox($f3->get('indoor')))
-    {
+    if (!validIndoor($f3->get('indoor'))) {
         $isValid = false;
         $f3->set("errors['indoor']", "Please select at least one indoor activity");
     }
 
-    if (!validCheckbox($f3->get('outdoor')))
-    {
+    if (!validOutdoor($f3->get('outdoor'))) {
         $isValid = false;
         $f3->set("errors['outdoor']", "Please select at least one outdoor activity");
     }
@@ -99,25 +73,27 @@ function validInterestsForm()
     return $isValid;
 }
 
-/* Validate a food
- * Food must not be empty and may only consist
- * of alphabetic characters.
- *
- * @param String food
- * @return boolean
- */
-function validString($text)
+//checks to see that a string is all alphabetic
+function validName($name)
 {
-    $text = str_replace(" ", "", $text);
-
-    return !empty($text) && ctype_alpha($text);
+    //allow spaces in case user has multiple names
+    $name = str_replace(" ", "", $name);
+    return !empty($name) && ctype_alpha($name);
 }
 
-function validSentences($text)
+//checks to see that an age is numeric and between 18 and 118
+function validAge($age)
 {
-    return !empty($text);
+    return !empty($age) && ctype_digit($age) && ($age >= 18 && $age <= 118);
 }
 
+//checks to see that a phone number is valid (you can decide what constitutes a “valid” phone number)
+function validPhone($phone)
+{
+    return !empty($phone) && ctype_digit($phone) && strlen($phone) == 10;
+}
+
+//checks to see that an email address is valid
 function validEmail($email)
 {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -127,44 +103,20 @@ function validEmail($email)
     return true;
 }
 
-/* Validate quantity
- * Quantity must not be empty and must be a number
- * greater than 1.
- *
- * @param String qty
- * @return boolean
- */
-function validNumber($text)
+//checks each selected indoor interest against a list of valid options
+function validIndoor($indoor)
 {
-    return !empty($text) && ctype_digit($text) && $text >= 1;
-}
-
-/* Validate a meal
- *
- * @param String meal
- * @return boolean
- */
-function validRadio($radio)
-{
-    if (isset($radio))
+    if (!empty($indoor) && isset($indoor))
     {
         return true;
     }
     return false;
 }
 
-function validList($list)
+//checks each selected outdoor interest against a list of valid options
+function validOutdoor($outdoor)
 {
-    if (!empty($list) && $list != "--Choose your State--")
-    {
-        return true;
-    }
-    return false;
-}
-
-function validCheckbox($checkbox)
-{
-    if (!empty($checkbox) && isset($checkbox))
+    if (!empty($outdoor) && isset($outdoor))
     {
         return true;
     }
