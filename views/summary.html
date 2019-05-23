@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col">
         <div class="container">
-            <div class="card" style="width: 18rem;">
+            <div class="card" id="card">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Name: {{ @SESSION.first }} {{ @SESSION.last }}</li>
-                    <li class="list-group-item">Age: {{ @SESSION.age }}</li>
                     <li class="list-group-item">Gender: {{ @SESSION.gender }}</li>
+                    <li class="list-group-item">Age: {{ @SESSION.age }}</li>
                     <li class="list-group-item">Phone: {{ @SESSION.phone }}</li>
                     <li class="list-group-item">Email: {{ @SESSION.email }}</li>
                     <li class="list-group-item">State: {{ @SESSION.state }}</li>
@@ -27,16 +27,8 @@
     <div class="col">
         <div class="container">
             <div class="row">
-                <!--
-                <img src="images/default.jpg" class="figure-img img-fluid rounded"
-                     alt="default">
-                <img src="images/default-profile.jpg" class="figure-img img-fluid rounded"
-                     alt="default profile">
-                <img src="images/avatar.png" class="figure-img img-fluid rounded"
-                     alt="avatar">
-                -->
-                <img src="images/spyro_and_shredder.jpg" class="figure-img img-fluid rounded"
-                     alt="A default person placeholder image with rounded corners">
+                <img src="images/avatar.png" class="figure-img img-fluid rounded" id="avatar"
+                     alt="A default avatar image with rounded corners">
             </div>
             <div class="row">
                 <h3>Biography</h3>
