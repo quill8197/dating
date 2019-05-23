@@ -10,15 +10,23 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <p>Name: {{ @first }} {{ @last }}</p>
-    <p>Age: {{ @age }}</p>
-    <p>Gender: {{ @gender }}</p>
-    <p>Phone: {{ @phone }}</p>
-    <p>Email: {{ @email }}</p>
-    <p>State: {{ @state }}</p>
-    <p>Seeking: {{ @seeking}}</p>
-    <p>Biography: {{ @biography }}</p>
-    <p>Indoor Activities: {{ @indoor }}</p>
-    <p>Outdoor Activities: {{ @outdoor }}</p>
+    <p>Name: {{ @SESSION.first }} {{ @SESSION.last }}</p>
+    <p>Age: {{ @SESSION.age }}</p>
+    <p>Gender: {{ @SESSION.gender }}</p>
+    <p>Phone: {{ @SESSION.phone }}</p>
+    <p>Email: {{ @SESSION.email }}</p>
+    <p>State: {{ @SESSION.state }}</p>
+    <p>Seeking: {{ @SESSION.seeking}}</p>
+    <p>Biography: {{ @SESSION.biography }}</p>
+    <p>Indoor Activities:
+        <repeat group="{{ @SESSION.indoor }}" value="{{ @activity }}">
+            {{ @activity }}
+        </repeat>
+    </p>
+    <p>Outdoor Activities:
+        <repeat group="{{ @SESSION.outdoor }}" value="{{ @activity }}">
+            {{ @activity }}
+        </repeat>
+    </p>
 </body>
 </html>

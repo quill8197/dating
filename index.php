@@ -6,6 +6,7 @@
  * Time: 2:16 PM
  * Description: The controller for my dating website
  */
+session_start();
 
 // Turn on error reporting
 ini_set('display_error', 1);
@@ -21,7 +22,20 @@ $f3 = Base::instance();
 // Turn on Fat-free error reporting
 $f3->set('DEBUG', 3);
 
-// define a default route
+// Define arrays
+$f3->set('allStates', array("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+    "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
+    "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
+    "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+    "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
+    "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"));
+
+$f3->set('indoorActivities', array('tv', 'movies', 'cooking', 'board games',
+    'puzzles', 'reading', 'playing cards', 'video games'));
+$f3->set('outdoorActivities', array('hiking', 'biking', 'swimming', 'collecting',
+    'walking', 'climbing'));
+
+// Define a default route
 $f3->route('GET /', function()
 {
     $view = new Template();
@@ -74,12 +88,6 @@ $f3->route('GET|POST /personal', function($f3)
     echo $view->render('views/form1.html');
 });
 
-$f3->set('allStates', array("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
-    "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
-    "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
-    "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
-    "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
-    "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"));
 // define a profile route
 $f3->route('GET|POST /profile', function($f3)
 {
@@ -130,11 +138,6 @@ $f3->route('GET|POST /profile', function($f3)
     echo $view->render('views/form2.html');
 });
 
-$f3->set('indoorActivities', array('tv', 'movies', 'cooking', 'board games',
-    'puzzles', 'reading', 'playing cards', 'video games'));
-$f3->set('outdoorActivities', array('hiking', 'biking', 'swimming', 'collecting',
-    'walking', 'climbing'));
-
 // define a interests route
 $f3->route('GET|POST /interests', function($f3)
 {
@@ -180,11 +183,19 @@ $f3->route('GET|POST /interests', function($f3)
     echo $view->render('views/form3.html');
 });
 
-// define a summary route
-$f3->route('GET /summary', function()
+// Define a summary route
+$f3->route('GET /summary', function($f3)
 {
-    $view = new Template();
-    echo $view->render('views/summary.html');
+    if (empty($_SESSION)) // Make the user fill out the forms before viewing the summary page
+    {
+        echo '<p>Please fill out all of the forms</p>';
+        echo '<a class="btn btn-primary" href="/personal">Go to the first form</a>';
+    }
+    else // Display the summary page
+    {
+        $view = new Template();
+        echo $view->render('views/summary.html');
+    }
 });
 
 // Run Fat-Free
