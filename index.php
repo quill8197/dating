@@ -35,6 +35,7 @@ $f3->set('indoorActivities', array('tv', 'movies', 'cooking', 'board games',
 $f3->set('outdoorActivities', array('hiking', 'biking', 'swimming', 'collecting',
     'walking', 'climbing'));
 
+require_once ('views/header.html');
 // Define a default route
 $f3->route('GET /', function()
 {
@@ -189,7 +190,7 @@ $f3->route('GET /summary', function($f3)
     if (empty($_SESSION)) // Make the user fill out the forms before viewing the summary page
     {
         echo '<p>Please fill out all of the forms</p>';
-        echo '<a class="btn btn-primary" href="/personal">Go to the first form</a>';
+        echo '<a class="btn btn-primary" href="/328/dating">Start at the beginning</a>';
     }
     else // Display the summary page
     {
