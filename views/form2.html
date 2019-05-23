@@ -1,95 +1,95 @@
-    <div class="container">
-        <h1>Profile</h1>
-        <hr class="my-4">
+<div class="container">
+    <h1>Profile</h1>
+    <hr class="my-4">
 
-        <form action="#" method="post">
-            <div class="row">
-                <div class="col-8">
-                    <!-- Email Input -->
-                    <div class="row form-group">
-                        <check if="{{ @errors['email'] }}">
-                            <span class="err">{{ @errors['email'] }}</span>
-                        </check>
-                    </div>
-                    <div class="row form-group">
-                        <label class="form-check-label"><strong>Email</strong>
-                            <input type="text" class="form-control" name="email" value="{{ @email }}">
-                        </label>
-                    </div>
-
-                    <!-- State Input -->
-                    <div class="row form-group">
-                        <check if="{{ @errors['state'] }}">
-                            <span class="err">{{ @errors['state'] }}</span>
-                        </check>
-                    </div>
-                    <div class="row form-group">
-                        <label class="form-check-label"><strong>State</strong>
-                            <select class="form-control custom-select" name="state">
-                                <option>--Choose your State--</option>
-                                <repeat group="{{ @allStates }}" value="{{ @stateOption }}">
-                                    <option
-                                    <check if="{{ !empty(@allStates) && @state == @stateOption }}">
-                                        selected="selected"
-                                    </check>
-                                    >{{ @stateOption }}</option>
-                                </repeat>
-                            </select>
-                        </label>
-                    </div>
-
-                    <!-- Seeking Input -->
-                    <div class="row form-group">
-                        <check if="{{ @errors['seeking'] }}">
-                            <span class="err">{{ @errors['seeking'] }}</span>
-                        </check>
-                    </div>
-                    <div class="row form-group">
-                        <label class="form-check-label"><strong>Seeking</strong><br>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="seeking" value="Male"
-                                    <check if="{{ !empty(@seeking) && @seeking == 'Male' }}">
-                                        checked="checked"
-                                    </check>
-                                    >Male
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="seeking" value="Female"
-                                    <check if="{{ !empty(@seeking) && @seeking == 'Female' }}">
-                                        checked="checked"
-                                    </check>
-                                    >Female
-                                </label>
-                            </div>
-                        </label>
-                    </div>
+    <form action="#" method="post">
+        <div class="row">
+            <div class="col-8">
+                <!-- Email Input -->
+                <div class="row form-group">
+                    <check if="{{ @errors['email'] }}">
+                        <span class="err">{{ @errors['email'] }}</span>
+                    </check>
+                </div>
+                <div class="row form-group">
+                    <label class="form-check-label"><strong>Email</strong>
+                        <input type="text" class="form-control" name="email" value="{{ @email }}">
+                    </label>
                 </div>
 
-                <div class="col-4">
-                    <!-- Biography Input -->
-                    <div class="row form-group">
-                        <check if="{{ @errors['biography'] }}">
-                            <span class="err">{{ @errors['biography'] }}</span>
-                        </check>
-                    </div>
-                    <div class="row form-group">
-                        <label class="form-check-label"><strong>Biography</strong>
-                            <textarea rows="4" cols="30" class="form-control"
-                                      name="biography">{{ @biography }}</textarea>
-                        </label>
-                    </div>
+                <!-- State Input -->
+                <div class="row form-group">
+                    <check if="{{ @errors['state'] }}">
+                        <span class="err">{{ @errors['state'] }}</span>
+                    </check>
+                </div>
+                <div class="row form-group">
+                    <label class="form-check-label"><strong>State</strong>
+                        <select class="form-control custom-select" name="state">
+                            <option>--Choose your State--</option>
+                            <repeat group="{{ @allStates }}" value="{{ @stateOption }}">
+                                <option
+                                <check if="{{ !empty(@allStates) && @state == @stateOption }}">
+                                    selected="selected"
+                                </check>
+                                >{{ @stateOption }}</option>
+                            </repeat>
+                        </select>
+                    </label>
+                </div>
+
+                <!-- Seeking Input -->
+                <div class="row form-group">
+                    <check if="{{ @errors['seeking'] }}">
+                        <span class="err">{{ @errors['seeking'] }}</span>
+                    </check>
+                </div>
+                <div class="row form-group">
+                    <label class="form-check-label"><strong>Seeking</strong><br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="seeking" value="Male"
+                                <check if="{{ !empty(@seeking) && @seeking == 'Male' }}">
+                                    checked="checked"
+                                </check>
+                                >Male
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="seeking" value="Female"
+                                <check if="{{ !empty(@seeking) && @seeking == 'Female' }}">
+                                    checked="checked"
+                                </check>
+                                >Female
+                            </label>
+                        </div>
+                    </label>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col text-right">
-                    <input type="submit" class="btn btn-primary" value="Next">
+            <div class="col-4">
+                <!-- Biography Input -->
+                <div class="row form-group">
+                    <check if="{{ @errors['biography'] }}">
+                        <span class="err">{{ @errors['biography'] }}</span>
+                    </check>
+                </div>
+                <div class="row form-group">
+                    <label class="form-check-label"><strong>Biography</strong>
+                        <textarea rows="4" cols="30" class="form-control"
+                                  name="biography">{{ @biography }}</textarea>
+                    </label>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-right">
+                <input type="submit" class="btn btn-primary" value="Next">
+            </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>

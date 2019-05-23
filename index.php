@@ -35,10 +35,10 @@ $f3->set('indoorActivities', array('tv', 'movies', 'cooking', 'board games',
 $f3->set('outdoorActivities', array('hiking', 'biking', 'swimming', 'collecting',
     'walking', 'climbing'));
 
-require_once ('views/header.html');
 // Define a default route
 $f3->route('GET /', function()
 {
+    require('views/header.html');
     $view = new Template();
     echo $view->render('views/home.html');
 });
@@ -46,6 +46,7 @@ $f3->route('GET /', function()
 // define a personal information route
 $f3->route('GET|POST /personal', function($f3)
 {
+    require('views/header.html');
     //If form has been submitted, validate
     if(!empty($_POST))
     {
@@ -92,6 +93,7 @@ $f3->route('GET|POST /personal', function($f3)
 // define a profile route
 $f3->route('GET|POST /profile', function($f3)
 {
+    require('views/header.html');
     //If form has been submitted, validate
     if(!empty($_POST))
     {
@@ -142,6 +144,7 @@ $f3->route('GET|POST /profile', function($f3)
 // define a interests route
 $f3->route('GET|POST /interests', function($f3)
 {
+    require('views/header.html');
     //If form has been submitted, validate
     if(!empty($_POST))
     {
@@ -187,6 +190,7 @@ $f3->route('GET|POST /interests', function($f3)
 // Define a summary route
 $f3->route('GET /summary', function($f3)
 {
+    require('views/header.html');
     if (empty($_SESSION)) // Make the user fill out the forms before viewing the summary page
     {
         echo '<p>Please fill out all of the forms</p>';

@@ -1,85 +1,64 @@
-    <div class="container">
-        <h1>Interests</h1>
-        <hr class="my-4">
+<div class="container">
+    <h1>Interests</h1>
+    <hr class="my-4">
 
-        <form action="#" method="post">
-            <div class="row">
-                <div class="col-6">
-                    <!-- Indoor Interests -->
-                    <div class="row form-group">
-                        <check if="{{ @errors['indoor'] }}">
-                            <span class="err">{{ @errors['indoor'] }}</span>
-                        </check>
-                    </div>
-                    <div class="row form-group">
-                        <label class="form-check-label"><strong>In-door Interests</strong><br>
-                            <repeat group="{{ @indoorActivities }}" value="{{ @indoorOption }}">
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="indoor[]"
-                                               value="{{ @indoorOption }}"
-                                        <check if="{{ !empty(@indoor) && in_array(@indoorOption, @indoor) }}">
-                                            checked="checked"
-                                        </check>
-                                        >{{ @indoorOption }}
-                                    </label>
-                                </div>
-                            </repeat>
-                        </label>
-                    </div>
+    <form action="#" method="post">
+        <div class="row">
+            <div class="col-6">
+                <!-- Indoor Interests -->
+                <div class="row form-group">
+                    <check if="{{ @errors['indoor'] }}">
+                        <span class="err">{{ @errors['indoor'] }}</span>
+                    </check>
+                </div>
+                <div class="row form-group">
+                    <label class="form-check-label"><strong>In-door Interests</strong><br>
+                        <repeat group="{{ @indoorActivities }}" value="{{ @indoorOption }}">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="indoor[]"
+                                           value="{{ @indoorOption }}"
+                                    <check if="{{ !empty(@indoor) && in_array(@indoorOption, @indoor) }}">
+                                        checked="checked"
+                                    </check>
+                                    >{{ @indoorOption }}
+                                </label>
+                            </div>
+                        </repeat>
+                    </label>
+                </div>
 
-                    <!-- Outdoor Interests -->
-                    <div class="row form-group">
-                        <check if="{{ @errors['outdoor'] }}">
-                            <span class="err">{{ @errors['outdoor'] }}</span>
-                        </check>
-                    </div>
-                    <div class="row form-group">
-                        <label class="form-check-label"><strong>Out-door Interests</strong><br>
-                            <repeat group="{{ @outdoorActivities }}" value="{{ @outdoorOption }}">
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="outdoor[]"
-                                               value="{{ @outdoorOption }}"
-                                        <check if="{{ !empty(@outdoor) && in_array(@outdoorOption, @outdoor) }}">
-                                            checked="checked"
-                                        </check>
-                                        >{{ @outdoorOption }}
-                                    </label>
-                                </div>
-                            </repeat>
-                        </label>
-                    </div>
+                <!-- Outdoor Interests -->
+                <div class="row form-group">
+                    <check if="{{ @errors['outdoor'] }}">
+                        <span class="err">{{ @errors['outdoor'] }}</span>
+                    </check>
+                </div>
+                <div class="row form-group">
+                    <label class="form-check-label"><strong>Out-door Interests</strong><br>
+                        <repeat group="{{ @outdoorActivities }}" value="{{ @outdoorOption }}">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="outdoor[]"
+                                           value="{{ @outdoorOption }}"
+                                    <check if="{{ !empty(@outdoor) && in_array(@outdoorOption, @outdoor) }}">
+                                        checked="checked"
+                                    </check>
+                                    >{{ @outdoorOption }}
+                                </label>
+                            </div>
+                        </repeat>
+                    </label>
                 </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col text-right">
-                    <input type="submit" class="btn btn-primary" value="Next">
-                </div>
+        <div class="row">
+            <div class="col text-right">
+                <input type="submit" class="btn btn-primary" value="Next">
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
-
-<!-- State Input
-<div class="row form-group">
-    <check if="{{ @errors['state'] }}">
-        <span class="err">{{ @errors['state'] }}</span>
-    </check>
-</div>
-<div class="row form-group">
-    <label class="form-check-label">State
-        <select class="form-control custom-select" name="state" id="state">
-            <option>--Choose your State--</option>
-            <repeat group="{{ @allStates }}" value="{{ @stateOption }}">
-                <option
-                <check if="{{ !empty(@allStates) && @state == @stateOption }}">
-                    selected="selected"
-                </check>
-                >{{ @stateOption }}</option>
-            </repeat>
-        </select>
-    </label>
-</div>-->

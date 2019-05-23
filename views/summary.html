@@ -1,20 +1,57 @@
-    <p>Name: {{ @SESSION.first }} {{ @SESSION.last }}</p>
-    <p>Age: {{ @SESSION.age }}</p>
-    <p>Gender: {{ @SESSION.gender }}</p>
-    <p>Phone: {{ @SESSION.phone }}</p>
-    <p>Email: {{ @SESSION.email }}</p>
-    <p>State: {{ @SESSION.state }}</p>
-    <p>Seeking: {{ @SESSION.seeking}}</p>
-    <p>Biography: {{ @SESSION.biography }}</p>
-    <p>Indoor Activities:
-        <repeat group="{{ @SESSION.indoor }}" value="{{ @activity }}">
-            {{ @activity }}
-        </repeat>
-    </p>
-    <p>Outdoor Activities:
-        <repeat group="{{ @SESSION.outdoor }}" value="{{ @activity }}">
-            {{ @activity }}
-        </repeat>
-    </p>
+<div class="row">
+    <div class="col">
+        <div class="container">
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Name: {{ @SESSION.first }} {{ @SESSION.last }}</li>
+                    <li class="list-group-item">Age: {{ @SESSION.age }}</li>
+                    <li class="list-group-item">Gender: {{ @SESSION.gender }}</li>
+                    <li class="list-group-item">Phone: {{ @SESSION.phone }}</li>
+                    <li class="list-group-item">Email: {{ @SESSION.email }}</li>
+                    <li class="list-group-item">State: {{ @SESSION.state }}</li>
+                    <li class="list-group-item">Seeking: {{ @SESSION.seeking}}</li>
+                    <li class="list-group-item">Interests:
+                        <repeat group="{{ @SESSION.indoor }}" value="{{ @activity }}">
+                            {{ @activity }}
+                        </repeat>
+
+                        <repeat group="{{ @SESSION.outdoor }}" value="{{ @activity }}">
+                            {{ @activity }}
+                        </repeat>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="container">
+            <div class="row">
+                <!--
+                <img src="images/default.jpg" class="figure-img img-fluid rounded"
+                     alt="default">
+                <img src="images/default-profile.jpg" class="figure-img img-fluid rounded"
+                     alt="default profile">
+                <img src="images/avatar.png" class="figure-img img-fluid rounded"
+                     alt="avatar">
+                -->
+                <img src="images/spyro_and_shredder.jpg" class="figure-img img-fluid rounded"
+                     alt="A default person placeholder image with rounded corners">
+            </div>
+            <div class="row">
+                <h3>Biography</h3>
+            </div>
+            <div class="row">
+                <p>{{ @SESSION.biography }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center">
+        <a class="btn btn-primary" href="#">Contact Me!</a>
+    </div>
+</div>
 </body>
 </html>
