@@ -16,7 +16,7 @@
 
         <form action="#" method="post">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-8">
                     <!-- Email Input -->
                     <div class="row form-group">
                         <check if="{{ @errors['email'] }}">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-4">
                     <!-- Biography Input -->
                     <div class="row form-group">
                         <check if="{{ @errors['biography'] }}">
@@ -93,10 +93,12 @@
                                       name="biography">{{ @biography }}</textarea>
                         </label>
                     </div>
+                </div>
+            </div>
 
-                    <div class="row form-group">
-                        <input type="submit" class="btn btn-primary" value="Next">
-                    </div>
+            <div class="row">
+                <div class="col text-right">
+                    <input type="submit" class="btn btn-primary" value="Next">
                 </div>
             </div>
         </form>
